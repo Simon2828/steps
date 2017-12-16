@@ -5,7 +5,6 @@ const initState = {
 }
 
 export default (state = initState, action) => {
-console.log('action', action)
 	switch(action.type) {
 		case SET_MESSAGE :
 			return {...state, message: action.payload.message}
