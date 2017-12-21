@@ -3,12 +3,15 @@ import React from 'react';
 export default class InputPreview extends React.Component {
 	render () {
 		return (
-			<div>
+			<div className="centered">
 				<input
+					className="group"
 					type="text"
 					value={this.props.value}
+					placeholder="Search for Learning Objectives..."
 					onChange={e => this.props.onChange(e.target.value)}
 					/>
+				<div className="bar"></div>
 			</div>
 		)
 	}

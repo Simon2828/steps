@@ -40,7 +40,7 @@ class App extends Component {
                 <InputPreview
                     value={message}
                     onChange={(value)=>{this._onChange(value);this._fuseSearch(value)}}/>
-                <LoResults result={result} onClick={(index)=>{this._loClicked(index)}}/>
+                <LoResults className="loResults" result={result} onClick={(index)=>{this._loClicked(index)}}/>  
             </div>
         )
     }

@@ -13,7 +13,7 @@ console.log('result in LoResults', props)
       })
     
       return (
-        <div>
+        <div className="flex-container">
           {Los}
         </div>
       )
