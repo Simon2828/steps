@@ -14,15 +14,15 @@
     },
     {
         lO: "Describe the character",
-      stepsToSuccess: ["Describe the setting", "Describe the character"]
+      stepsToSuccess: ["Choose an interesting name", "Use two adjectives"]
     },
     {
       lO: "Use personification",
-      stepsToSuccess: ["Include action", "Use short sentences"]
+      stepsToSuccess: ["Make it into a person", "Give human features"]
     },
       {
       lO: "Write a poem",
-      stepsToSuccess: ["Solve the problem", "Think about feelings"]
+      stepsToSuccess: ["Include verses", "Use a simile"]
     }
   ]
     

@@ -39,7 +39,7 @@ class About extends React.Component {
 			return (
 				<div>
 				<Link to="/">
-                    <button>Go Home</button>
+                    <button>Search</button>
                 </Link>
 			</div>
 			)
@@ -53,15 +53,19 @@ class About extends React.Component {
 		return (
 			<div>
 				<Link to="/">
-                    <button>Go Home</button>
+                    <button>Search</button>
                 </Link>
-			<h2>{learningObj}</h2>
+			<div className="centered">
+			<h2 className={`lO loResults`}>L.O. {learningObj}.</h2>
+			<div className="bar"></div>
+			<br />
 			<ul>
+		
 				{stepsToSuccess.map((step,index)=> {
-					console.log(this.state.stepsToSuccess[index])
-			return <StepsToSuccess className={this.state.stepsToSuccess[index]} onClick={index=>this.toggleHighlight(index)} step={step} index={index} />})}
+			return <StepsToSuccess className={`steps ${this.state.stepsToSuccess[index]}`} onClick={index=>this.toggleHighlight(index)} step={step} index={index} />})}
 				
 			</ul>
+			</div>
 			</div>
 		)
 	}

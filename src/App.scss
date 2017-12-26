@@ -2,7 +2,7 @@ $main-color: #F44336;
 $secondary-color: white;
 $main-color: #333;
 $secondary-color: #2196cf;
-$width: 350px; // Change Me
+$width: 500px; // Change Me
 
 * {
   box-sizing: border-box;
@@ -12,6 +12,10 @@ body {
   background: $main-color;
   color: $secondary-color;
 
+}
+
+ul {
+  padding: 0;
 }
 
 // .title {
@@ -24,11 +28,9 @@ body {
 .centered {
   width: $width;
   height: $width/5;
-  margin: auto;
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 0; right: 0; 
+  margin: 2em auto;
 }
+
 
 .group {
   width: 100%;
@@ -118,25 +120,46 @@ input {
   font-size: $width/15;
   font-family: Roboto, Helvetica;
   list-style: none;
-  margin-left: 2rem;
-  margin-top: 1rem;
   flex-direction: column;
+  width: $width;
+  height: $width/8;
+  margin: auto;
 }
 
 
-.card {
-  color: white;
-  background: blue;
-  cursor: pointer;
-}
-
-.card-highlighted {
-  background: red;
-  color: white;
-  font-size: 30px;
-}
 
 .flex-container {
   display: flex;
   flex-direction: column;
+
+ &-centered {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+ }  
+}
+
+.steps {
+  list-style: none;
+  font-size: $width/16;
+  font-family: Roboto, Helvetica;
+  color: $secondary-color;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card-highlighted {
+  color: green;
+}
+
+.lO {
+  font-family: Roboto, Helvetica;
+  color: white;
+  padding-top: $width/15;
+  padding-bottom: $width/10;
+  font-weight: 500;
 }

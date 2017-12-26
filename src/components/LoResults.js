@@ -20,8 +20,5 @@ console.log('result in LoResults', props)
     }
 }
 
-// to return in Los above but onClick undefined...
-{/* return <Link to="/steps-to-success" className="loResults" onClick={this.props.onClick.bind(this,index)}>
-{learningObj.lO}</Link>; */}
 
 export default LoResults;
