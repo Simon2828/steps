@@ -148,13 +148,6 @@ input {
   color: $secondary-color;
 }
 
-.card {
-  cursor: pointer;
-}
-
-.card-highlighted {
-  color: green;
-}
 
 .lO {
   font-family: Roboto, Helvetica;
@@ -179,11 +172,11 @@ input {
 .tick{
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
-  transition: stroke-dashoffset 1s 0.5s ease-out;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
 }
 svg .path{
   opacity: 1;
@@ -191,3 +184,13 @@ svg .path{
 }
 
 // .drawn +    took out from css above.. before svg selector
+
+.card {
+  cursor: pointer;
+  stroke: $main-color;
+}
+
+.card-highlighted {
+  color: lightgreen;
+  stroke: lightgreen;
+}

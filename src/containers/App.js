@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {setMessage} from '../actions/message';
 import {setSearchResult} from '../actions/searchResult';
 import {setStepIndex} from '../actions/stepIndex';
+import {clearMessage} from '../actions/clearMessage';
 import {Link} from 'react-router-dom';
 import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
@@ -27,6 +28,7 @@ class App extends Component {
 
     _loClicked = (index) => {
         this.props.dispatch(setStepIndex(index));
+        this.props.dispatch(clearMessage());
     }
 
     render () {

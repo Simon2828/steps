@@ -1,4 +1,5 @@
 import { SET_MESSAGE } from '../types/message';
+import { CLEAR_MESSAGE } from '../types/clearMessage';
 
 const initState = {
 	message: ''
@@ -7,7 +8,9 @@ const initState = {
 export default (state = initState, action) => {
 	switch(action.type) {
 		case SET_MESSAGE :
-			return {...state, message: action.payload.message}
+			return {...state, message: action.payload.message};
+		case CLEAR_MESSAGE :
+			return {...state, message: action.payload.message};
 		default :
 			return state
 	}
