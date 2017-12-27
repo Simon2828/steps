@@ -9,7 +9,7 @@ export default () => {
 		<BrowserRouter>
 			<Switch>
 			  <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
-			  <Route path={process.env.PUBLIC_URL + '/'} component={About}/>
+			  <Route path={process.env.PUBLIC_URL + '/steps-to-success'} component={About}/>
 			</Switch>
 		</BrowserRouter>
 	)
