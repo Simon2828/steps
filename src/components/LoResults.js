@@ -8,7 +8,8 @@ console.log('result in LoResults', props)
     }
     else {
     let Los = props.result.map((learningObj, index) => {
-      return <Link to={process.env.PUBLIC_URL + '/steps-to-success'}className="loResults" onClick={props.onClick.bind(this,index)}>
+      console.log('in loresults process.env.PUBLICURL',process.env.PUBLIC_URL)
+      return <Link to={process.env.PUBLIC_URL + '/steps-to-success'} className="loResults" onClick={props.onClick.bind(this,index)}>
       {learningObj.lO}</Link>;
       })
     
