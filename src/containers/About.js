@@ -38,7 +38,7 @@ class About extends React.Component {
 		{if (this.props.stepIndexReducer.index == null) {
 			return (
 				<div>
-				<Link to="/">
+				<Link to={process.env.PUBLIC_URL}>
                     <button>Search</button>
                 </Link>
 			</div>
@@ -52,7 +52,7 @@ class About extends React.Component {
 		}
 		return (
 			<div>
-				<Link to="/">
+				<Link to={process.env.PUBLIC_URL}>
                     <button>Search</button>
                 </Link>
 			<div className="centered">
