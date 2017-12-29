@@ -1,8 +1,8 @@
-$main-color: #F44336;
-$secondary-color: white;
-$main-color: #333;
+
+$input: #F26A1A;
+$main-color: white;
 $secondary-color: #2196cf;
-$width: 500px; // Change Me
+$width: 900px; // Change Me
 
 * {
   box-sizing: border-box;
@@ -55,9 +55,9 @@ input {
   border: none;
   border-radius: 0; // For iOS
   // border-bottom: solid $width/150 rgba(white, .5);
-  color: white;
+  color: $input;
   background: $main-color;
-  font-size: $width/15;
+  font-size: $width/19;
   transition: .3s ease;
   &:valid {
     // border-bottom-color: rgba(white, .5);
@@ -73,7 +73,7 @@ input {
     ~label {
       top: 0;
       font: 700 $width/25 Roboto;
-      color: $secondary-color;
+      color: $input;
     }
     
       
@@ -97,7 +97,7 @@ input {
   content: '';
   width: $width;
   // height: $width/100;
-  height: $width/150;
+  height: $width/200;
   // transform: translateX(-100%);
   transition: .3s ease;
   // margin-top: -2px;
@@ -107,7 +107,7 @@ input {
     content: '';
     position: absolute;
     width: 100%;
-    height: 150%;
+    height: 100%;
     background: $secondary-color;
     
   }
@@ -117,13 +117,14 @@ input {
 
 .loResults {
   color: $secondary-color;
-  font-size: $width/15;
+  font-size: $width/19;
   font-family: Roboto, Helvetica;
   list-style: none;
   flex-direction: column;
   width: $width;
-  height: $width/8;
+  height: $width/12;
   margin: auto;
+  text-decoration-line: none;
 }
 
 
@@ -143,7 +144,7 @@ input {
 
 .steps {
   list-style: none;
-  font-size: $width/16;
+  font-size: $width/22;
   font-family: Roboto, Helvetica;
   color: $secondary-color;
 }
@@ -151,9 +152,9 @@ input {
 
 .lO {
   font-family: Roboto, Helvetica;
-  color: white;
+  color:#757575;
   padding-top: $width/15;
-  padding-bottom: $width/10;
+  padding-bottom: $width/15;
   font-weight: 500;
 }
 
@@ -191,6 +192,6 @@ svg .path{
 }
 
 .card-highlighted {
-  color: lightgreen;
-  stroke: lightgreen;
+  color: #1EC51E;
+  stroke: #1EC51E;
 }
