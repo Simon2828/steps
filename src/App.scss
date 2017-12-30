@@ -82,7 +82,7 @@ input {
     }
   }
 
-  // Stop Chrome's hideous pale yellow background on auto-fill
+  // Stop Chrome's pale yellow background on auto-fill
   
   &:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px $main-color inset;
@@ -127,6 +127,9 @@ input {
   text-decoration-line: none;
 }
 
+.searchButton {
+  border-color: $input;
+}
 
 
 .flex-container {
@@ -151,17 +154,23 @@ input {
 
 
 .lO {
+  top: $width/15;
+  width: 100%;
   font-family: Roboto, Helvetica;
   color:#757575;
   padding-top: $width/15;
-  padding-bottom: $width/15;
   font-weight: 500;
+  height: 152px;
 }
 
 //svg tick
 
+svg {
+  margin-bottom: 6px;
+}
+
 .circ{
-  opacity: 0;
+  opacity: 1;
   stroke-dasharray: 130;
   stroke-dashoffset: 130;
   -webkit-transition: all 1s;
@@ -173,11 +182,15 @@ input {
 .tick{
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+polyline.steps.card.tick.path {
+  opacity: 0;
 }
 svg .path{
   opacity: 1;
@@ -188,7 +201,7 @@ svg .path{
 
 .card {
   cursor: pointer;
-  stroke: $main-color;
+  stroke: $input;
 }
 
 .card-highlighted {

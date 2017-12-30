@@ -39,7 +39,7 @@ class About extends React.Component {
 			return (
 				<div>
 				<Link to={process.env.PUBLIC_URL}>
-                    <button>Search</button>
+                    <button className="searchButton">Search</button>
                 </Link>
 			</div>
 			)
@@ -53,7 +53,7 @@ class About extends React.Component {
 		return (
 			<div>
 				<Link to={process.env.PUBLIC_URL}>
-                    <button>Search</button>
+                    <button className="searchButton">Search</button>
                 </Link>
 			<div className="centered">
 			<h2 className={`lO loResults`}>L.O. {learningObj}.</h2>
