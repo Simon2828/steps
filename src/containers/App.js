@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
 import LoResults from '../components/LoResults';
+import api from '../api';
 
 let options = {
     keys: ['lO', 'stepsToSuccess']
@@ -16,6 +17,18 @@ let options = {
   let fuse = new Fuse(TargetsApi, options)
 
 class App extends Component {
+
+    componentDidMount() {
+        this._fetchAllLos();
+    }
+
+    _fetchAllLos = () => {
+        api.getAllLos()
+        .then(res => {
+          console.log('res: ', res);
+        })
+        .catch(console.error)
+      }
 
 	_onChange = (value) => {
 		this.props.dispatch(setMessage(value))
