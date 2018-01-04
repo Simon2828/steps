@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mysql = require('promise-mysql');
 
 
@@ -33,6 +34,7 @@ const dataLoader = new StepsDataLoader(connection);
 
 // Express initialization
 const app = express();
+app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
