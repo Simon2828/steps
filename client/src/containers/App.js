@@ -25,8 +25,14 @@ class App extends Component {
     _fetchAllLos = () => {
         api.getAllLos()
         .then(res => {
-          console.log('res: ', res);
+                return res.body.map(obj => {
+                let s2s = obj.stepsToSuccess.split(',');
+                function uniqueSteps(arr) {return [...new Set(arr)]};
+                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s)};
+                })
+                
         })
+        .then(res=> console.log('res', res))
         .catch(console.error)
       }
 
