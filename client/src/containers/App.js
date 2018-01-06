@@ -5,42 +5,46 @@ import {setMessage} from '../actions/message';
 import {setSearchResult} from '../actions/searchResult';
 import {setStepIndex} from '../actions/stepIndex';
 import {clearMessage} from '../actions/clearMessage';
+import {storelOsAndSteps} from '../actions/lOsAndSteps';
 import {Link} from 'react-router-dom';
 import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
 import LoResults from '../components/LoResults';
 import api from '../api';
 
-let options = {
-    keys: ['lO', 'stepsToSuccess']
-  };
-  let fuse = new Fuse(TargetsApi, options)
+let fuse;
 
 class App extends Component {
-
+    
     componentDidMount() {
         this._fetchAllLos();
     }
-
+    
     _fetchAllLos = () => {
         api.getAllLos()
         .then(res => {
-                return res.body.map(obj => {
+            return res.body.map(obj => {
                 let s2s = obj.stepsToSuccess.split(',');
                 function uniqueSteps(arr) {return [...new Set(arr)]};
                 return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s)};
-                })
-                
+            })
+            
         })
-        .then(res=> console.log('res', res))
+        .then(res=> this._storelOsAndSteps(res))
         .catch(console.error)
-      }
-
+    }
+    
 	_onChange = (value) => {
-		this.props.dispatch(setMessage(value))
+        this.props.dispatch(setMessage(value))
     }
     
     _fuseSearch = (value) => {
+        console.log('this.props:', this.props.lOsAndStepsReducer[0])
+        let options = {
+            keys: ['lO', 'stepsToSuccess']
+          };
+        fuse = new Fuse(this.props.lOsAndStepsReducer[0], options)
+        console.log('fuse', fuse)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));
     }
@@ -48,6 +52,10 @@ class App extends Component {
     _loClicked = (index) => {
         this.props.dispatch(setStepIndex(index));
         this.props.dispatch(clearMessage());
+    }
+
+    _storelOsAndSteps = (data) => {
+        this.props.dispatch(storelOsAndSteps(data))
     }
 
     render () {
