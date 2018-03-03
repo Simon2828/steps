@@ -9,7 +9,7 @@ import {storelOsAndSteps} from '../actions/lOsAndSteps';
 import {Link} from 'react-router-dom';
 import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
-import LoResults from '../components/LoResults';
+import TeacherLoResults from '../components/TeacherLoResults';
 import api from '../api';
 
 let fuse;
@@ -23,10 +23,10 @@ class App extends Component {
     _fetchAllLos = () => {
         api.getAllLos()
         .then(res => {
-            return res.body.map((obj, index) => {
+            return res.body.map(obj => {
                 let s2s = obj.stepsToSuccess.split(',');
                 function uniqueSteps(arr) {return [...new Set(arr)]};
-                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
+                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s)};
             })
             
         })
@@ -55,7 +55,6 @@ class App extends Component {
     }
 
     _storelOsAndSteps = (data) => {
-        console.log('storelosandSteps data', data)
         this.props.dispatch(storelOsAndSteps(data))
     }
 
@@ -66,11 +65,11 @@ class App extends Component {
 
         return (
         	<div>
-                <Link to={process.env.PUBLIC_URL + '/teacher'}><button className="button--teacher-login">Teacher login</button></Link>
+                <Link to={process.env.PUBLIC_URL + '/'}><button className="button--home">Home</button></Link>
                 <InputPreview
                     value={message}
                     onChange={(value)=>{this._onChange(value);this._fuseSearch(value)}}/>
-                <LoResults className="loResults" result={result} onClick={(index)=>{this._loClicked(index)}}/>  
+                <TeacherLoResults className="loResults" result={result} onClick={(index)=>{this._loClicked(index)}}/>  
             </div>
         )
     }
