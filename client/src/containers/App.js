@@ -39,11 +39,11 @@ class App extends Component {
     }
     
     _fuseSearch = (value) => {
-        console.log('this.props:', this.props.lOsAndStepsReducer[0])
+        let elOflOsAndStepsReducerArray = this.props.lOsAndStepsReducer.length-1
         let options = {
             keys: ['lO', 'stepsToSuccess']
           };
-        fuse = new Fuse(this.props.lOsAndStepsReducer[0], options)
+        fuse = new Fuse(this.props.lOsAndStepsReducer[elOflOsAndStepsReducerArray], options)
         console.log('fuse', fuse)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));
@@ -55,7 +55,6 @@ class App extends Component {
     }
 
     _storelOsAndSteps = (data) => {
-        console.log('storelosandSteps data', data)
         this.props.dispatch(storelOsAndSteps(data))
     }
 

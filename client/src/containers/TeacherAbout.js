@@ -3,18 +3,18 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import TeacherStepsToSuccess from '../components/TeacherStepsToSuccess';
 import ContentEditable from 'react-contenteditable';
-import api from '../api'
+import api from '../api';
+import {editLo} from '../actions/editLo';
 
 class TeacherAbout extends React.Component {
 
 	
 	constructor(props) {
 		super(props);
-        console.log('TeacherAbout this.props: ', this.props)
         this.state = {
 			stepsToSuccess: {0:"card", 1:"card", 2:"card", 3:"card", 4:"card", 5:"card", 6:"card", 7:"card", 8:"card", 9:"card", 10:"card"},
-			html: `L.O. ${this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].lO}`,
-			editedHtml: `L.O. ${this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].lO}`
+			html: `L.O. ${this.props.searchResultReducer.result[this.props.stepIndexReducer.orderOfResultsIndex].lO}`,
+			editedHtml: `L.O. ${this.props.searchResultReducer.result[this.props.stepIndexReducer.orderOfResultsIndex].lO}`
         }
         this.toggleHighlight = this.toggleHighlight.bind(this);
         this.edit = this.edit.bind(this);
@@ -47,12 +47,14 @@ class TeacherAbout extends React.Component {
 			if (err) console.log('error: ',err);
 			console.log('res',res);
 			console.log('props.searchResultReducer.result',this.props.searchResultReducer.result)
+			this.props.dispatch(editLo(loValue, stepIndex))
+
+			//this.props.dispatch(editLo(this.props.searchResultReducer.result, this.props.stepIndexReducer.index))
 			
 			
-			
-			// extract id by passing down database index - need to put this in reducer - thought I'd done this, maybe didn't save??
+			// extract id by passing down database index - need to put this in reducer
 			// create action which takes in id of LO clicked on from clicked on LO
-			// create reducer to edit LO	
+			// create reducer to edit LO (it is stored in stepIndex reducer/state..)
 
 
 			// set the state with new edited LO
@@ -80,9 +82,9 @@ class TeacherAbout extends React.Component {
 			)
 		}
 			
-		else if (this.props.stepIndexReducer.index.index !== null) {
-            learningObj = this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].lO}
-			stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].stepsToSuccess
+		else if (this.props.stepIndexReducer.orderOfResultsIndex !== null) {
+            learningObj = this.props.searchResultReducer.result[this.props.stepIndexReducer.orderOfResultsIndex].lO}
+			stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.orderOfResultsIndex].stepsToSuccess
 
 		}
 

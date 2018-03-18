@@ -23,10 +23,10 @@ class App extends Component {
     _fetchAllLos = () => {
         api.getAllLos()
         .then(res => {
-            return res.body.map(obj => {
+            return res.body.map((obj, index) => {
                 let s2s = obj.stepsToSuccess.split(',');
                 function uniqueSteps(arr) {return [...new Set(arr)]};
-                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s)};
+                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
             })
             
         })
@@ -39,18 +39,17 @@ class App extends Component {
     }
     
     _fuseSearch = (value) => {
-        console.log('this.props:', this.props.lOsAndStepsReducer[0])
+        let elOflOsAndStepsReducerArray = this.props.lOsAndStepsReducer.length-1
         let options = {
             keys: ['lO', 'stepsToSuccess']
           };
-        fuse = new Fuse(this.props.lOsAndStepsReducer[0], options)
-        console.log('fuse', fuse)
+        fuse = new Fuse(this.props.lOsAndStepsReducer[elOflOsAndStepsReducerArray], options)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));
     }
 
-    _loClicked = (index) => {
-        this.props.dispatch(setStepIndex(index));
+    _loClicked = (index, orderOfResultsIndex) => {
+        this.props.dispatch(setStepIndex(index, orderOfResultsIndex));
         this.props.dispatch(clearMessage());
     }
 
@@ -69,7 +68,7 @@ class App extends Component {
                 <InputPreview
                     value={message}
                     onChange={(value)=>{this._onChange(value);this._fuseSearch(value)}}/>
-                <TeacherLoResults className="loResults" result={result} onClick={(index)=>{this._loClicked(index)}}/>  
+                <TeacherLoResults className="loResults" result={result} onClick={(index, orderOfResultsIndex)=>{this._loClicked(index, orderOfResultsIndex)}}/>  
             </div>
         )
     }

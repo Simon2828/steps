@@ -1,10 +1,10 @@
 import { EDIT_LO } from '../types/editLo';
 
-export const storelOsAndSteps = (data) => {
+export const editLo = (data, id) => {
 	return dispatch => {
-
 		dispatch({
 			type: EDIT_LO,
+			id,
 			payload: data
 		})
 

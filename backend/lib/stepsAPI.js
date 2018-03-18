@@ -8,7 +8,7 @@ class StepsDataLoader {
     query(sql) {
         return this.conn.query(sql);
     }
-
+    // first lO_name not being returned from database...
     getAllLos() {
         return this.query(
             knex.raw(`SELECT lO_name AS lO, GROUP_CONCAT(step_name) AS stepsToSuccess FROM lOsAndSteps GROUP BY lO_name`)

@@ -19,13 +19,11 @@ class About extends React.Component {
 // map over state in method to return classNames...??
 
     toggleHighlight(index,e) {
-		console.log('index in togglehighlight',index)
 		// toggle but not working right:
 		// this.state.highlighted === index ? this.setState({ highlighted: false }) : this.setState({highlighted: index});
 		// let activeIndex = this.state.activeIndex === index ? null : index;
 		// this.setState({activeIndex});
 		this.setState({stepsToSuccess: {...this.state.stepsToSuccess, [index]: "card-highlighted",}})
-		console.log(this.state.stepsToSuccess)
 	}
 	
 
@@ -45,9 +43,9 @@ class About extends React.Component {
 			)
 		}
 			
-		else if (this.props.stepIndexReducer.index.index !== null) {
-			learningObj = this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].lO}
-			stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index.index].stepsToSuccess
+		else if (this.props.stepIndexReducer.orderOfResultsIndex !== null) {
+			learningObj = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].lO}
+			stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].stepsToSuccess
 
 		}
 		return (

@@ -6,13 +6,12 @@ import {Link} from 'react-router-dom';
 
 
 const TeacherLoResults = (props) => {
-  console.log('TeacherLoResults props', props.result)
     if (!props.result) {
         return null
     }
     else {
-    let Los = props.result.map((learningObj, index) => {
-      return <Link to={process.env.PUBLIC_URL + '/teacher/steps-to-success'} className="loResults" onClick={props.onClick.bind(this,index)}>
+    let Los = props.result.map((learningObj, orderOfResultsIndex) => {
+      return <Link to={process.env.PUBLIC_URL + '/teacher/steps-to-success'} className="loResults" onClick={props.onClick.bind(this,learningObj.index, orderOfResultsIndex)}>
       {learningObj.lO}</Link>;
       })
     

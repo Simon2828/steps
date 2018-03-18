@@ -6,7 +6,6 @@ import TeacherAbout from './containers/TeacherAbout';
 import Teacher from './containers/Teacher';
 
 export default () => {
-	console.log('process.env.PUBLIC_URL:', process.env.PUBLIC_URL)
 	return (
 		<BrowserRouter>
 			<Switch>
