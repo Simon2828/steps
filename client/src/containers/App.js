@@ -5,6 +5,7 @@ import {setMessage} from '../actions/message';
 import {setSearchResult} from '../actions/searchResult';
 import {setStepIndex} from '../actions/stepIndex';
 import {clearMessage} from '../actions/clearMessage';
+import {clearSearchResult} from '../actions/clearSearchResult';
 import {storelOsAndSteps} from '../actions/lOsAndSteps';
 import {Link} from 'react-router-dom';
 import TargetsApi from '../targetsApi';

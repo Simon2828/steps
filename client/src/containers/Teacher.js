@@ -16,23 +16,23 @@ let fuse;
 
 class App extends Component {
     
-    componentDidMount() {
-        this._fetchAllLos();
-    }
+    // componentDidMount() {
+    //     this._fetchAllLos();
+    // }
     
-    _fetchAllLos = () => {
-        api.getAllLos()
-        .then(res => {
-            return res.body.map((obj, index) => {
-                let s2s = obj.stepsToSuccess.split(',');
-                function uniqueSteps(arr) {return [...new Set(arr)]};
-                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
-            })
+    // _fetchAllLos = () => {
+    //     api.getAllLos()
+    //     .then(res => {
+    //         return res.body.map((obj, index) => {
+    //             let s2s = obj.stepsToSuccess.split(',');
+    //             function uniqueSteps(arr) {return [...new Set(arr)]};
+    //             return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
+    //         })
             
-        })
-        .then(res=> this._storelOsAndSteps(res))
-        .catch(console.error)
-    }
+    //     })
+    //     .then(res=> this._storelOsAndSteps(res))
+    //     .catch(console.error)
+    // }
     
 	_onChange = (value) => {
         this.props.dispatch(setMessage(value))
@@ -53,9 +53,11 @@ class App extends Component {
         this.props.dispatch(clearMessage());
     }
 
-    _storelOsAndSteps = (data) => {
-        this.props.dispatch(storelOsAndSteps(data))
-    }
+    // _storelOsAndSteps = (data) => {
+    //     this.props.dispatch(storelOsAndSteps(data))
+    // }
+
+
 
     render () {
 

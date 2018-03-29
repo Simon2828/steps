@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StepsToSuccess from '../components/StepsToSuccess';
+import {clearSearchResult} from '../actions/clearSearchResult';
 
 class About extends React.Component {
 
@@ -46,11 +47,10 @@ class About extends React.Component {
 		else if (this.props.stepIndexReducer.orderOfResultsIndex !== null) {
 			learningObj = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].lO}
 			stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].stepsToSuccess
-
 		}
 		return (
 			<div>
-				<Link to={process.env.PUBLIC_URL}>
+				<Link to={process.env.PUBLIC_URL} >
                     <button className="searchButton">Search</button>
                 </Link>
 			<div className="centered">
