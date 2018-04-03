@@ -54,7 +54,7 @@ class About extends React.Component {
                     <button className="searchButton">Search</button>
                 </Link>
 			<div className="centered">
-			<h2 className={`lO loResults`}>L.O. {learningObj}.</h2>
+			<h2 className={`lO loResults`}>L.O. {learningObj}</h2>
 			<div className="bar"></div>
 			<br />
 			<ul>

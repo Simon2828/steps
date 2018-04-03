@@ -27,7 +27,7 @@ class App extends Component {
             return res.body.map((obj, index) => {
                 let s2s = obj.stepsToSuccess.split(',');
                 function uniqueSteps(arr) {return [...new Set(arr)]};
-                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
+                return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index, databaseId:obj.lOId};
             })
             
         })
@@ -40,11 +40,10 @@ class App extends Component {
     }
     
     _fuseSearch = (value) => {
-        let elOflOsAndStepsReducerArray = this.props.lOsAndStepsReducer.length-1
         let options = {
             keys: ['lO', 'stepsToSuccess']
           };
-        fuse = new Fuse(this.props.lOsAndStepsReducer[elOflOsAndStepsReducerArray], options)
+        fuse = new Fuse(this.props.lOsAndStepsReducer, options)
         console.log('fuse', fuse)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));

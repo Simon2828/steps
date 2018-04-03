@@ -9,15 +9,26 @@ module.exports = (dataLoader) => {
     });
 
     stepsController.post('/edit-lo', (req, res) => {
-        console.log('req.body: ', req.body)
         dataLoader.editLo({
             originalLO: req.body.originalLO,
             lO: req.body.lO,
-            id: req.body.id
+            id: req.body.id,
+            databaseId : req.body.databaseId
         })
             .then(data => res.status(201).json(data))
             .catch(err => res.status(400).json(err));
     });
+
+    stepsController.post('/edit-step', (req, res) => {
+        dataLoader.editStep({
+            originalStep: req.body.originalStep,
+            step: req.body.step,
+            stepIndex: req.body.stepIndex,
+            databaseId: req.body.databaseId
+        })
+            .then(data => res.status(201).json(data))
+            .catch(err => res.status(400).json(err));
+    })
 
     return stepsController;
 }

@@ -5,6 +5,7 @@ export default class InputPreview extends React.Component {
 		return (
 			<div className="centered">
 				<input
+					autoFocus
 					className="group"
 					type="text"
 					value={this.props.value}

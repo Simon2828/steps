@@ -32,7 +32,7 @@ class TeacherStepsToSuccess extends React.Component {
         render() {
                 return (
                         <div>
-                                <ContentEditable className={`loResults`} onFocus={this.click} onKeyPress={this.props.onKeyPress.bind(this)} html={this.props.step} disabled={false}></ContentEditable>
+                                <ContentEditable className={`steps${this.props.index} loResults steps`} onFocus={this.click} onKeyPress={this.props.onKeyPress.bind(this)} html={this.props.step} disabled={false}></ContentEditable>
                         </div>
 
 

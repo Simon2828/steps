@@ -8,12 +8,20 @@ class Api {
       .get(`${API_HOST}/steps`)
     )
  
-    editLo = (originalLO, loValue, stepIndex)  => {
+    editLo = (originalLO, loValue, stepIndex, databaseId)  => {
       return superagent
       .post(`${API_HOST}/steps/edit-lo`)
-      .send({originalLO, lO: loValue, id: stepIndex.index})
+      .send({originalLO, lO: loValue, id: stepIndex.index, databaseId})
       .set('Accept', 'application/json')
-
+      
+    }
+    
+    editStep = (originalStep, stepValue, stepIndex, databaseId) => {
+      console.log('stepIndex', stepIndex)
+      return superagent
+      .post(`${API_HOST}/steps/edit-step`)
+      .send({originalStep, step: stepValue, stepIndex, databaseId})
+      .set('Accept', 'application/json')
     }
 
     // need the target value to create new entry into database using primary key..

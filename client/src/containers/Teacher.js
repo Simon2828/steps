@@ -16,34 +16,16 @@ let fuse;
 
 class App extends Component {
     
-    // componentDidMount() {
-    //     this._fetchAllLos();
-    // }
-    
-    // _fetchAllLos = () => {
-    //     api.getAllLos()
-    //     .then(res => {
-    //         return res.body.map((obj, index) => {
-    //             let s2s = obj.stepsToSuccess.split(',');
-    //             function uniqueSteps(arr) {return [...new Set(arr)]};
-    //             return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index};
-    //         })
-            
-    //     })
-    //     .then(res=> this._storelOsAndSteps(res))
-    //     .catch(console.error)
-    // }
-    
 	_onChange = (value) => {
         this.props.dispatch(setMessage(value))
     }
     
     _fuseSearch = (value) => {
-        let elOflOsAndStepsReducerArray = this.props.lOsAndStepsReducer.length-1
         let options = {
             keys: ['lO', 'stepsToSuccess']
           };
-        fuse = new Fuse(this.props.lOsAndStepsReducer[elOflOsAndStepsReducerArray], options)
+
+        fuse = new Fuse(this.props.lOsAndStepsReducer, options)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));
     }

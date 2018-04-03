@@ -8,24 +8,37 @@ class StepsDataLoader {
     query(sql) {
         return this.conn.query(sql);
     }
-    // first lO_name not being returned from database...
+
     getAllLos() {
         return this.query(
-            knex.raw(`SELECT lO_name AS lO, GROUP_CONCAT(step_name) AS stepsToSuccess FROM lOsAndSteps GROUP BY lO_name`)
-            .toString())
+            knex.raw(`SELECT lO_name AS lO, lO_id AS lOId, GROUP_CONCAT(step_name) AS stepsToSuccess FROM lOsAndSteps GROUP BY lO_name`)
+                .toString())
     }
 
     editLo(lO) {
-        let originalLO = lO.originalLO.substring(5)
         return this.query(
             knex('lOsAndSteps')
-                .where('lO_name', '=', originalLO)
+                .where('lO_id', '=', lO.databaseId)
                 .update('lO_name', lO.lO)
                 .select()
                 .toString()
         )
     }
-        // select updated LO 
+
+    editStep(step) {
+        console.log('step.databaseId', step.databaseId)
+        console.log('step.index', step.stepIndex);
+        return this.query(
+            knex('lOsAndSteps')
+                .where({
+                    lO_id: step.databaseId,
+                    step_order: step.stepIndex    
+                })
+                .update('step_name', step.step)
+                .select()
+                .toString()
+        )
+    }
 }
 
 module.exports = StepsDataLoader;
