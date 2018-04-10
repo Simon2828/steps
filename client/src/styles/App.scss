@@ -14,6 +14,7 @@ $width: 900px; // Change Me
 body {
   background: $main-color;
   color: $secondary-color;
+  font-family: ''Nunito'', sans-serif;
 
 }
 
@@ -40,7 +41,7 @@ label {
   position: absolute;
   top: $width/15;
   color:  white;
-  font: 400 $width/15 Roboto;
+  font: 400 $width/15 'Nunito';
   cursor: text;
   transition: .25s ease;
 }
@@ -60,7 +61,7 @@ input {
     // border-bottom-color: rgba(white, .5);
     ~label {
       top: 0;
-      font: 700 $width/25 Roboto;
+      font: 700 $width/25 'Nunito';
       color: rgba(white, .5);
     }
   }
@@ -69,7 +70,7 @@ input {
     // border-bottom-color: $secondary-color;
     ~label {
       top: 0;
-      font: 700 $width/25 Roboto;
+      font: 700 $width/25 'Nunito';
       color: $input;
     }
     
@@ -115,7 +116,7 @@ input {
 .loResults {
   color: $input;
   font-size: $width/22;
-  font-family: Roboto, Helvetica;
+  font-family: 'Nunito', Helvetica;
   list-style: none;
   flex-direction: column;
   width: $width;
@@ -150,7 +151,7 @@ input {
 .steps {
   list-style: none;
   font-size: $width/22;
-  font-family: Roboto, Helvetica;
+  font-family: 'Nunito', Helvetica;
   color: $secondary-color;
   margin-bottom: 0.7em;
 }
@@ -159,7 +160,7 @@ input {
 .lO {
   top: $width/15;
   width: 100%;
-  font-family: Roboto, Helvetica;
+  font-family: 'Nunito', Helvetica;
   color:$input;
   padding-top: $width/15;
   font-weight: 500;

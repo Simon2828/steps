@@ -4,8 +4,10 @@
   "private": true,
   "homepage": "https://simon2828.github.io/steps/",
   "dependencies": {
+    "auth0-js": "^9.4.2",
     "fuse.js": "^3.2.0",
     "gh-pages": "^1.1.0",
+    "history": "^4.7.2",
     "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.2",
     "react": "^16.2.0",

@@ -12,6 +12,9 @@ import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
 import LoResults from '../components/LoResults';
 import api from '../api';
+import Auth from '../Auth/Auth.js';
+
+const auth = new Auth();
 
 let fuse;
 
@@ -65,6 +68,7 @@ class App extends Component {
 
         return (
         	<div>
+                <button onClick={()=>auth.login()}>login</button>
                 <Link to={process.env.PUBLIC_URL + '/teacher'}><button className="button--teacher-login">Teacher login</button></Link>
                 <InputPreview
                     value={message}
