@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import StepsToSuccess from '../components/StepsToSuccess';
 import {clearSearchResult} from '../actions/clearSearchResult';
+import Camera from '../containers/Camera'
 
 class About extends React.Component {
 
@@ -13,11 +14,6 @@ class About extends React.Component {
         }
         this.toggleHighlight = this.toggleHighlight.bind(this);
 	}
-	
-
-	// state highlighted: [{highlighted: index},]
-//  setState by index using ternary operator below l23
-// map over state in method to return classNames...??
 
     toggleHighlight(index,e) {
 		// toggle but not working right:
@@ -26,8 +22,6 @@ class About extends React.Component {
 		// this.setState({activeIndex});
 		this.setState({stepsToSuccess: {...this.state.stepsToSuccess, [index]: "card-highlighted",}})
 	}
-	
-
 
 	render () {
 		let learningObj;
@@ -63,6 +57,9 @@ class About extends React.Component {
 			return <StepsToSuccess className={`steps ${this.state.stepsToSuccess[index]}`} onClick={index=>this.toggleHighlight(index)} step={step} index={index} />})}
 				
 			</ul>
+			<Link to={process.env.PUBLIC_URL + '/camera'} >
+                    <button className="searchButton">Take photo of work</button> {/*change to camera icon*/}
+                </Link>
 			</div>
 			</div>
 		)

@@ -4,7 +4,6 @@ import { EDIT_LO } from '../types/editLo';
 const initState = [];
 
 export default (state = initState, action) => {
-	console.log('state', state)
 	switch (action.type) {
 		case LOS_AND_STEPS:
 				return action.payload;

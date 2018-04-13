@@ -1,0 +1,15 @@
+.swiped-right {
+    background-color: yellow;
+    transform: translateX(30px);
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.swiped-left {
+    background-color: red;
+    transform: translateX(-30px);
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
