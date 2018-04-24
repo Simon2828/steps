@@ -14,6 +14,7 @@ $width: 900px; // Change Me
 body {
   background: $main-color;
   color: $secondary-color;
+  height: 100%;
 
 }
 
@@ -210,4 +211,10 @@ svg .path{
 .card-highlighted {
   color: #1EC51E;
   stroke: #1EC51E;
+}
+
+// move below to writing stylesheet componennt
+
+.canvas {
+  opacity: 0.5;
 }

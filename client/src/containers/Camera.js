@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Camera from 'react-camera';
 import { Link } from 'react-router-dom';
+import {image} from '../actions/image';
+import {connect} from 'react-redux';
 
-
-export default class Cam extends Component {
+class Cam extends Component {
 
     constructor(props) {
         super(props);
@@ -15,38 +16,34 @@ export default class Cam extends Component {
     }
 
     takePicture() {
-        console.log('here')
         this.camera.capture()
             .then(blob => {
-                this.img.src = URL.createObjectURL(blob);
-                console.log('this.img.src', this.img.src)
-                this.setState({blob: this.img.src})
-                this.img.onload = () => { URL.revokeObjectURL(this.src); }
+                let blobUrl = URL.createObjectURL(blob);
+                console.log('blobUrl', blobUrl)
+                this.props.dispatch(image(blobUrl));
+                //this.img.onload = () => { URL.revokeObjectURL(this.src); }     move to Writing prop
+                //setstate to toggle class add display:none
             })
     }
 
     render() {
-        return (
-            <div style={style.container}>
-                <Camera
-                    style={style.preview}
-                    ref={(cam) => {
-                        this.camera = cam;
-                    }}
-                >
-                    <div style={style.captureContainer} onClick={this.takePicture}>
-                        <div style={style.captureButton} />
-                    </div>
-                </Camera>
-                <Link to={{pathname: process.env.PUBLIC_URL + '/writing', state: {blob:this.state.blob}}}>
-                    <img
-                        style={style.captureImage}
-                        ref={(img) => {
-                            this.img = img;
-                        }}
 
-                    />
+        return (
+            <div>
+                <div style={style.container} >
+                    <Camera
+                        style={style.preview}
+                        ref={(cam) => {
+                            this.camera = cam;
+                        }}
+                    >
+                    <Link to={{ pathname: process.env.PUBLIC_URL + '/writing' } } onClick={this.takePicture} >
+                        <div style={style.captureContainer} > {/*727px and less need to add bottom margin eg 100px*/} 
+                            <div style={style.captureButton} />
+                        </div>
                 </Link>
+                    </Camera>
+                </div>
             </div>
         );
     }
@@ -55,6 +52,11 @@ export default class Cam extends Component {
 const style = {
     preview: {
         position: 'relative',
+        margin: '0 auto',
+        height: '100vh',
+        textAlign: 'center',
+        overflow: 'hidden',
+        maxWidth: '178vh'
     },
     captureContainer: {
         display: 'flex',
@@ -76,3 +78,5 @@ const style = {
         width: '100%',
     }
 };
+
+export default connect(state => state)(Cam);
