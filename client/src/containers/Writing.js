@@ -14,29 +14,30 @@ class Writing extends React.Component {
 
     render() {
         let blob = this.props.image;
+        console.log('blob', blob)
         let stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].stepsToSuccess;
 
         return (
             <div>
                 <div className='container' style={{
                     display: 'block',
-                    background: `url(${blob})center center no-repeat fixed`,
+                    background: `url(${blob})top center no-repeat fixed`,
                     backgroundSize: 'cover',
                     position: 'relative',
-                    margin: '0 auto',
+                    margin: '-0 auto',
                     padding: '0',
-                    height: '100vh',
+                    height: '70vh',
                     textAlign: 'center',
                     overflow: 'hidden',
                     maxWidth: '178vh'
                 }} >
                     <Canvas className='canvas' />
+                    </div>
                 {stepsToSuccess.map((step, index) => {
                     return (
                         <PaintStepsToSuccess stepsToSuccess={step}/>
                     )
                 })}
-                </div>
 
             </div>
         )

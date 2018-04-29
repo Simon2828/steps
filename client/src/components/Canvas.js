@@ -7,8 +7,8 @@ export default class Canvas extends React.Component {
         // top: 198,
         // left: 320,
         color: "#ffc600",
-        minWidth: '100%',
-        minHeight: '100%',
+        minWidth: '611px',
+        minHeight: '480px',
     };
     render() {
         return (
@@ -21,8 +21,8 @@ export default class Canvas extends React.Component {
 
                 }}
                 brushColor={this.state.color}
-                canvasWidth={this.state.width}
-                canvasHeight={this.state.height}>
+                canvasWidth={this.state.minWidth}
+                canvasHeight={this.state.minHeight}>
             </CanvasDraw>
         )
 
