@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PaintStepsToSuccess = ({stepsToSuccess}) => {
+const PaintStepsToSuccess = ({stepsToSuccess, onClick}) => {
  return (
-     <div className='steps'>{stepsToSuccess}</div>
+     <div className='steps' onClick={onClick}>{stepsToSuccess}</div>
 
  )
 

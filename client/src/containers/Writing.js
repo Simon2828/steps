@@ -3,7 +3,7 @@ import Canvas from '../components/Canvas';
 import { connect } from 'react-redux';
 import StepsToSuccess from '../components/StepsToSuccess';
 import PaintStepsToSuccess from '../components/PaintStepsToSuccess';
-
+import changeColor from '../actions/changeColor';
 
 
 
@@ -16,7 +16,7 @@ class Writing extends React.Component {
     changeColor (index,e ) {
         const styleColor = window.getComputedStyle(e.target, null).getPropertyValue("color");
         console.log('styleColor', styleColor)
-
+        this.props.dispatch(changeColor(styleColor));
 
         // import actions etc. to changeColor..
         // in canvas set colorChange using redux props
