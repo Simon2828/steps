@@ -10,6 +10,18 @@ import PaintStepsToSuccess from '../components/PaintStepsToSuccess';
 class Writing extends React.Component {
     constructor(props) {
         super(props)
+        this.changeColor = this.changeColor.bind(this);
+    }
+
+    changeColor (index,e ) {
+        const styleColor = window.getComputedStyle(e.target, null).getPropertyValue("color");
+        console.log('styleColor', styleColor)
+
+
+        // import actions etc. to changeColor..
+        // in canvas set colorChange using redux props
+        
+
     }
 
     render() {
