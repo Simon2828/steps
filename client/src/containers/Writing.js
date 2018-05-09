@@ -47,7 +47,7 @@ class Writing extends React.Component {
                     </div>
                 {stepsToSuccess.map((step, index) => {
                     return (
-                        <PaintStepsToSuccess stepsToSuccess={step}/>
+                        <PaintStepsToSuccess stepsToSuccess={step} onClick={(e)=>this.changeColor(index,e)}/>
                     )
                 })}
 
