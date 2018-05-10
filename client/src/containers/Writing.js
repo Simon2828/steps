@@ -3,7 +3,7 @@ import Canvas from '../components/Canvas';
 import { connect } from 'react-redux';
 import StepsToSuccess from '../components/StepsToSuccess';
 import PaintStepsToSuccess from '../components/PaintStepsToSuccess';
-import changeColor from '../actions/changeColor';
+import {changeColor} from '../actions/changeColor';
 
 
 
@@ -47,7 +47,7 @@ class Writing extends React.Component {
                     </div>
                 {stepsToSuccess.map((step, index) => {
                     return (
-                        <PaintStepsToSuccess stepsToSuccess={step} onClick={(e)=>this.changeColor(index,e)}/>
+                        <PaintStepsToSuccess stepsToSuccess={step} color={this.props.color} index={index} onClick={(e)=>this.changeColor(index,e)}/>
                     )
                 })}
 
@@ -57,3 +57,8 @@ class Writing extends React.Component {
 }
 
 export default connect(state => state)(Writing);
+
+
+// color of paintstepstosuccess done by index and css
+// move color prop to canvas paint color
+// think of ui to show this
