@@ -16,17 +16,13 @@ class About extends React.Component {
 	}
 
     toggleHighlight(index,e) {
-		// toggle but not working right:
-		// this.state.highlighted === index ? this.setState({ highlighted: false }) : this.setState({highlighted: index});
-		// let activeIndex = this.state.activeIndex === index ? null : index;
-		// this.setState({activeIndex});
+
 		this.setState({stepsToSuccess: {...this.state.stepsToSuccess, [index]: "card-highlighted",}})
 	}
 
 	render () {
 		let learningObj;
 		let stepsToSuccess;
-		// let className = 'card' + (this.state.highlighted ? '-highlighted' : '');
 
 		{if (this.props.stepIndexReducer.index == null) {
 			return (

@@ -5,4 +5,10 @@
     text-align: 'center';
     overflow: 'hidden';
     max-width: '178vh';
+    cursor: url(../components/img/redEllipse.png), auto;
 }
+
+
+.canvas {
+    opacity: 0.5;
+  }

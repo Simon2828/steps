@@ -6,6 +6,7 @@ import TeacherAbout from './containers/TeacherAbout';
 import Teacher from './containers/Teacher';
 import Camera from './containers/Camera';
 import Writing from './containers/Writing';
+import FinishedMarking from './containers/FinishedMarking';
 
 export default () => {
 	return (
@@ -17,6 +18,7 @@ export default () => {
 			  <Route path={process.env.PUBLIC_URL + '/steps-to-success'} component={About}/>
 			  <Route path={process.env.PUBLIC_URL + '/camera'} component={Camera}/>
 			  <Route path={process.env.PUBLIC_URL + '/writing'} component={Writing}/>
+				<Route path={process.env.PUBLIC_URL + '/finished-marking'} component={FinishedMarking} />
 
 			</Switch>
 		</BrowserRouter>

@@ -154,6 +154,7 @@ input {
   font-family: Roboto, Helvetica;
   color: $secondary-color;
   margin-bottom: 0.7em;
+  cursor: pointer;
 }
 
 
@@ -213,8 +214,5 @@ svg .path{
   stroke: #1EC51E;
 }
 
-// move below to writing stylesheet componennt
 
-.canvas {
-  opacity: 0.5;
-}
+

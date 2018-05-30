@@ -3,31 +3,41 @@ import Canvas from '../components/Canvas';
 import { connect } from 'react-redux';
 import StepsToSuccess from '../components/StepsToSuccess';
 import PaintStepsToSuccess from '../components/PaintStepsToSuccess';
-import {changeColor} from '../actions/changeColor';
+import { changeColor } from '../actions/changeColor';
+import { Link } from 'react-router-dom';
 
-
+let clicked;
+let ind;
 
 class Writing extends React.Component {
     constructor(props) {
         super(props)
         this.changeColor = this.changeColor.bind(this);
+        this.moveBrush = this.moveBrush.bind(this);
+        this.state = {
+            0: false, 1: false, 2: false, 3: false, 4: false, 5: false,
+        }
     }
 
-    changeColor (index,e ) {
+    changeColor(index, e) {
         const styleColor = window.getComputedStyle(e.target, null).getPropertyValue("color");
         console.log('styleColor', styleColor)
         this.props.dispatch(changeColor(styleColor));
 
         // import actions etc. to changeColor..
         // in canvas set colorChange using redux props
-        
 
+    }
+
+    moveBrush(i) {
+        this.setState({ [i]: !this.state[i] })
+        ind = i;
     }
 
     render() {
         let blob = this.props.image;
-        console.log('blob', blob)
         let stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].stepsToSuccess;
+        clicked = this.state[ind] ? 'clicked' : '';
 
         return (
             <div>
@@ -43,14 +53,17 @@ class Writing extends React.Component {
                     overflow: 'hidden',
                     maxWidth: '178vh'
                 }} >
-                    <Canvas className='canvas' />
-                    </div>
+                    <Canvas className='canvas' ref={this.props.children} />
+                    {/*DELETE?? added the ref - not needed? how
+                    how to access the ref of 
+                    */}
+                </div>
                 {stepsToSuccess.map((step, index) => {
                     return (
-                        <PaintStepsToSuccess stepsToSuccess={step} color={this.props.color} index={index} onClick={(e)=>this.changeColor(index,e)}/>
+                        <PaintStepsToSuccess stepsToSuccess={step} clicked={this.state[index]} movePaintbrush={this.moveBrush} color={this.props.color} index={index} onClick={(e) => this.changeColor(index, e)} />
                     )
                 })}
-
+                <Link to={process.env.PUBLIC_URL + '/finished-marking'}>Finished marking</Link>
             </div>
         )
     }
