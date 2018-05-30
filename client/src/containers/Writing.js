@@ -21,7 +21,6 @@ class Writing extends React.Component {
 
     changeColor(index, e) {
         const styleColor = window.getComputedStyle(e.target, null).getPropertyValue("color");
-        console.log('styleColor', styleColor)
         this.props.dispatch(changeColor(styleColor));
 
         // import actions etc. to changeColor..
@@ -58,11 +57,13 @@ class Writing extends React.Component {
                     how to access the ref of 
                     */}
                 </div>
+                <div className='paintSteps'>
                 {stepsToSuccess.map((step, index) => {
                     return (
                         <PaintStepsToSuccess stepsToSuccess={step} clicked={this.state[index]} movePaintbrush={this.moveBrush} color={this.props.color} index={index} onClick={(e) => this.changeColor(index, e)} />
                     )
                 })}
+                </div>
                 <Link to={process.env.PUBLIC_URL + '/finished-marking'}>Finished marking</Link>
             </div>
         )
