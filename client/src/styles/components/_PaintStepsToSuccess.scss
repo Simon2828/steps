@@ -1,5 +1,12 @@
 .paintSteps {
+    margin: 0 auto;
     text-align: center;
+    border: 3px solid $third-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 641px;
 }
 
 

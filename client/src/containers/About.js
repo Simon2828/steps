@@ -40,9 +40,9 @@ class About extends React.Component {
 		}
 		return (
 			<div>
-				<Link to={process.env.PUBLIC_URL} >
+				{/* <Link to={process.env.PUBLIC_URL} >
                     <button className="searchButton">Search</button>
-                </Link>
+                </Link> */}
 			<div className="centered">
 			<h2 className={`lO loResults`}>L.O. {learningObj}</h2>
 			<div className="bar"></div>

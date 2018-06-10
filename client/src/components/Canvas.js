@@ -64,7 +64,7 @@ class Canvas extends React.Component {
 
 
 
-                <button
+                {/* <button
                     onClick={() => {
                         console.log('this.saveableCanvas', this.saveableCanvas);
                         console.log('this.saveableCanvas.startDrawIdx', this.saveableCanvas.startDrawIdx)
@@ -106,7 +106,7 @@ class Canvas extends React.Component {
                     }}
                 >
                     Undo
-          </button>
+          </button> */}
             </div>
         )
 

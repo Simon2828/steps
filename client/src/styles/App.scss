@@ -25,7 +25,7 @@ ul {
 .centered {
   width: $width;
   height: $width/5;
-  margin: 2em auto;
+  margin: 2em auto 2.1em;
 }
 
 
@@ -128,10 +128,6 @@ input {
 
 .margin {
   margin-bottom: 0.7em;
-}
-
-.searchButton {
-  border-color: $input;
 }
 
 

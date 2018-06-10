@@ -13,3 +13,17 @@
 .canvas {
     opacity: 0.5;
   }
+
+.paintStepsContainer {
+    margin-top: 0.3em;
+    padding-bottom: 0.5em;
+}
+
+.Writing--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    height: 100vh;
+}

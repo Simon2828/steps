@@ -39,7 +39,7 @@ class Writing extends React.Component {
         clicked = this.state[ind] ? 'clicked' : '';
 
         return (
-            <div>
+            <div className="Writing--container">
                 <div className='container' style={{
                     display: 'block',
                     background: `url(${blob})top center no-repeat fixed`,
@@ -47,10 +47,9 @@ class Writing extends React.Component {
                     position: 'relative',
                     margin: '-0 auto',
                     padding: '0',
-                    height: '70vh',
                     textAlign: 'center',
                     overflow: 'hidden',
-                    maxWidth: '178vh'
+                    maxWidth: '178vh',
                 }} >
                     <Canvas className='canvas' ref={this.props.children} />
                     {/*DELETE?? added the ref - not needed? how
@@ -60,11 +59,13 @@ class Writing extends React.Component {
                 <div className='paintSteps'>
                 {stepsToSuccess.map((step, index) => {
                     return (
+                        <div className="paintStepsContainer">
                         <PaintStepsToSuccess stepsToSuccess={step} clicked={this.state[index]} movePaintbrush={this.moveBrush} color={this.props.color} index={index} onClick={(e) => this.changeColor(index, e)} />
+                        </div>
                     )
                 })}
                 </div>
-                <Link to={process.env.PUBLIC_URL + '/finished-marking'}>Finished marking</Link>
+                <Link to={process.env.PUBLIC_URL + '/finished-marking'}><button className="button--home">Finished marking</button></Link>
             </div>
         )
     }
