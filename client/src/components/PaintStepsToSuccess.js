@@ -11,8 +11,8 @@ let paintbrushes = [redBrush, greenBrush, blueBrush, orangeBrush, brownBrush, pu
 
 const PaintStepsToSuccess = ({stepsToSuccess, onClick, index, movePaintbrush, clicked}) => {
  return (
-     <div className={`steps brushColor${index}`} onClick={onClick}>{stepsToSuccess}
-     <img className={'clicked'+clicked} onClick={movePaintbrush.bind(this, index)} src={paintbrushes[index]} alt='paintbrush'/>
+     <div className={`steps photoSteps`} onClick={onClick}>{stepsToSuccess}
+     <img className={`clicked${clicked} brushColor${index}`} onClick={movePaintbrush.bind(this, index)} src={paintbrushes[index]} alt='paintbrush'/>
      </div>
 
  )

@@ -36,7 +36,7 @@ class Canvas extends React.Component {
                         position: 'relative',
                         background: 'rgb(255, 255, 255, 0)',
                         display: 'inline-block',
-                        margin: 0
+                        margin: 0,
 
                     }}
                     brushColor={this.props.color}

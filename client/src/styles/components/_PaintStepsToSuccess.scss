@@ -10,32 +10,32 @@
 }
 
 
-.steps.brushColor0 {
+.brushColor0 {
     color: red;
     margin-bottom: 0;
 }
 
-.steps.brushColor1 {
+.brushColor1 {
     color: green;
     margin-bottom: 0;
 }
 
-.steps.brushColor2 {
+.brushColor2 {
     color: #1F9CE9;
     margin-bottom: 0;
 }
 
-.steps.brushColor3 {
+.brushColor3 {
     color: orange;
     margin-bottom: 0;
 }
 
-.steps.brushColor4 {
+.brushColor4 {
     color: brown;
     margin-bottom: 0;
 }
 
-.steps.brushColor5 {
+.brushColor5 {
     color: purple;
     margin-bottom: 0;
 }
@@ -70,4 +70,8 @@
     to {
       transform: rotate(0deg)
     }
+  }
+
+  .steps.photoSteps {
+      margin-bottom: 0;
   }

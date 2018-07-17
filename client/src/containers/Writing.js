@@ -50,6 +50,7 @@ class Writing extends React.Component {
                     textAlign: 'center',
                     overflow: 'hidden',
                     maxWidth: '178vh',
+                    width: '100%',
                 }} >
                     <Canvas className='canvas' ref={this.props.children} />
                     {/*DELETE?? added the ref - not needed? how
