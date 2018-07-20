@@ -31,22 +31,7 @@ provider:
   # under process.env.
   environment:
     tableName:
-      Ref: NotesTable
-
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - dynamodb:DescribeTable
-        - dynamodb:Query
-        - dynamodb:Scan
-        - dynamodb:GetItem
-        - dynamodb:PutItem
-        - dynamodb:UpdateItem
-        - dynamodb:DeleteItem
-      # Restrict our IAM role permissions to
-      # the specific table for the stage
-      Resource:
-        - "Fn::GetAtt": [ NotesTable, Arn ]
+      Ref: LearningObjectivesTable
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
@@ -60,7 +45,10 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:eu-west-2:*:*"
+      # Restrict our IAM role permissions to
+      # the specific table for the stage
+      Resource:
+        - "Fn::GetAtt": [ LearningObjectivesTable, Arn ]
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -78,18 +66,6 @@ functions:
           cors: true
           authorizer: aws_iam
 
-    # Defines an HTTP API endpoint that calls the main function in get.js
-    # - path: url path is /notes/{id}
-    # - method: GET request
-  get:
-    handler: get.main
-    events:
-      - http:
-          path: notes/{id}
-          method: get
-          cors: true
-          authorizer: aws_iam
-
   list:
   # Defines an HTTP API endpoint that calls the main function in list.js
   # - path: url path is /notes
@@ -97,7 +73,7 @@ functions:
     handler: list.main
     events:
       - http:
-          path: notes
+          path: learning-objectives
           method: get
           cors: true
           authorizer: aws_iam
