@@ -5,7 +5,7 @@ export async function main(event, context, callback) {
   console.log('event', event)
   console.log('callback', callback)
     const params = {
-      TableName: "peermarkit",
+      TableName: process.env.tableName,
       // 'KeyConditionExpression' defines the condition for the query
       // - 'userId = :userId': only return items with matching 'userId'
       //   partition key
