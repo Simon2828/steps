@@ -9,7 +9,7 @@ Resources:
           AttributeType: S
       KeySchema:
         - AttributeName: learningObjective
-          KeyType: S
+          KeyType: HASH
       # Set the capacity based on the stage
       ProvisionedThroughput:
         ReadCapacityUnits: ${self:custom.tableThroughput}
