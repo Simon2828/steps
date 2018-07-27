@@ -12,27 +12,53 @@ import TargetsApi from '../targetsApi';
 import Fuse from 'fuse.js';
 import LoResults from '../components/LoResults';
 import api from '../api';
+import {API} from 'aws-amplify';
 
 let fuse;
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            lOs: ''
+        }
+    }
     
     componentDidMount() {
         this._fetchAllLos();
     }
     
     _fetchAllLos = () => {
-        api.getAllLos()
-        .then(res => {
-            return res.body.map((obj, index) => {
+        let myInit = { 
+            headers: {}, //OPTIONAL
+            response: true // OPTIONAL (return entire response object instead of response.data)
+        }
+        API.get('peermarkit', '/learning-objectives/')
+        .then(response => {
+            return response[0].lOs.map((obj, index) => {
                 let s2s = obj.stepsToSuccess.split(',');
                 function uniqueSteps(arr) {return [...new Set(arr)]};
                 return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index, databaseId:obj.lOId};
             })
-            
         })
-        .then(res=> this._storelOsAndSteps(res))
-        .catch(console.error)
+        .then(res=>this._storelOsAndSteps(res))
+        .catch(error => {
+            console.log('error.response', error.response)
+        });
+
+        //below will all change - when using sql
+        // api.getAllLos()
+        // .then(res => {
+        //     console.log('res from sql', res)
+        //     return res.body.map((obj, index) => {
+        //         let s2s = obj.stepsToSuccess.split(',');
+        //         function uniqueSteps(arr) {return [...new Set(arr)]};
+        //         return {lO:obj.lO, stepsToSuccess: uniqueSteps(s2s), index, databaseId:obj.lOId};
+        //     })
+            
+        // })
+        // .then(res=> this._storelOsAndSteps(res))
+        // .catch(console.error)
     }
     
 	_onChange = (value) => {
