@@ -5,6 +5,11 @@ export async function main(event, context, callback) {
   console.log('event', event)
   console.log('callback', callback)
   console.log('process.env', process.env)
+
+  // function getId() {
+
+  // }
+
     const params = {
       TableName: "dev-learningObjectives",
       // value for TableName above:   process.env.tableName
