@@ -9,7 +9,6 @@ export default (state = initState, action) => {
 				return action.payload;
 
 		case EDIT_LO:
-			console.log('state in case edit_lo', state)
 			let editedLo = state.map((los, index) => {
 				if (Number(index) != action.id) {
 					return los;
@@ -22,7 +21,6 @@ export default (state = initState, action) => {
 			}
 			)
 
-			console.log('editedLo', editedLo);
 
 			return editedLo;
 

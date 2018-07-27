@@ -70,7 +70,6 @@ class App extends Component {
             keys: ['lO', 'stepsToSuccess']
           };
         fuse = new Fuse(this.props.lOsAndStepsReducer, options)
-        console.log('fuse', fuse)
         let fuseSearchResult = fuse.search(value);
         this.props.dispatch(setSearchResult(fuseSearchResult));
     }
@@ -91,7 +90,7 @@ class App extends Component {
 
         return (
         	<div>
-                <Link to={process.env.PUBLIC_URL + '/teacher'}><button className="button--teacher-login">Teacher login</button></Link>
+                {/* <Link to={process.env.PUBLIC_URL + '/teacher'}><button className="button--teacher-login">Teacher login</button></Link> */}
                 <InputPreview
                     value={message}
                     onChange={(value)=>{this._onChange(value);this._fuseSearch(value)}}/>

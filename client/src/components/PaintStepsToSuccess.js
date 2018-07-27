@@ -1,13 +1,7 @@
 import React from 'react';
-import blueBrush from './img/blue-brush.png';
-import redBrush from './img/red-brush.png';
-import greenBrush from './img/green-brush.png';
-import orangeBrush from './img/orange-brush.png';
-import brownBrush from './img/brown-brush.png';
-import purpleBrush from './img/purple-brush.png';
 
 
-let paintbrushes = [redBrush, greenBrush, blueBrush, orangeBrush, brownBrush, purpleBrush]
+let paintbrushes = ['%PUBLIC_URL%/blue-brush.png', '%PUBLIC_URL%/red-brush.png', '%PUBLIC_URL%/green-brush.png', '%PUBLIC_URL%/orange-brush.png', '%PUBLIC_URL%/brown-brush.png', '%PUBLIC_URL%/purple-brush.png']
 
 const PaintStepsToSuccess = ({stepsToSuccess, onClick, index, movePaintbrush, clicked}) => {
  return (

@@ -7,7 +7,7 @@ const LoResults = (props) => {
     }
     else {
     let Los = props.result.map((learningObj, index) => {
-      return <Link to={process.env.PUBLIC_URL + '/steps-to-success'} className="loResults margin" onClick={props.onClick.bind(this,index)}>
+      return <Link to={process.env.PUBLIC_URL + '/steps-to-success'} key={index} className="loResults margin" onClick={props.onClick.bind(this,index)}>
       {learningObj.lO}</Link>;
       })
     

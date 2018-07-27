@@ -17,7 +17,6 @@ class Api {
     }
     
     editStep = (originalStep, stepValue, stepIndex, databaseId) => {
-      console.log('stepIndex', stepIndex)
       return superagent
       .post(`${API_HOST}/steps/edit-step`)
       .send({originalStep, step: stepValue, stepIndex, databaseId})
