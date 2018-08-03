@@ -5,7 +5,7 @@
 
 
 $main-color: white;
-$width: 900px; // Change Me
+$width: 100vh; // Change Me
 
 * {
   box-sizing: border-box;
@@ -93,7 +93,7 @@ input {
   // background: $secondary-color;
   background: rgba(white, .5);
   content: '';
-  width: $width;
+  width: 97%;
   // height: $width/100;
   height: $width/200;
   // transform: translateX(-100%);
@@ -161,7 +161,7 @@ input {
   color:$input;
   padding-top: $width/15;
   font-weight: 500;
-  height: 180px;
+  height: 165px;
 }
 
 //svg tick
@@ -210,5 +210,14 @@ svg .path{
   stroke: #1EC51E;
 }
 
+.ul-container {
+  padding-top: 12px;
+}
 
+@media only screen and (min-width: 770px) {
+  .bar {
+  
+    width: $width;
+  }
 
+}

@@ -7,6 +7,8 @@
     justify-content: center;
     flex-direction: column;
     min-width: 641px;
+    padding: 3px;
+
 }
 
 
@@ -74,4 +76,5 @@
 
   .steps.photoSteps {
       margin-bottom: 0;
+      font-size: 1.9em;
   }

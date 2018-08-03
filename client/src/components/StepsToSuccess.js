@@ -10,7 +10,7 @@ class StepsToSuccess extends React.Component {
         this.state = {
             swipedRight: [],
             swipedLeft: [],
-            tick: ''
+            tick: '-hidden'
         }
         this.handleSwipeRight = this.handleSwipeRight.bind(this);
         this.handleSwipeLeft = this.handleSwipeLeft.bind(this);
@@ -21,7 +21,7 @@ class StepsToSuccess extends React.Component {
         let stepsToSuccess = this.props.searchResultReducer.result[this.props.stepIndexReducer.index].stepsToSuccess;
         this.setState({
             swipedRight: stepsToSuccess.map((step, i) => 'initial'),
-            swipedLeft: stepsToSuccess.map((step, i) => 'initial')
+            swipedLeft: stepsToSuccess.map((step, i) => '-hidden')
         });
     }
 
@@ -67,7 +67,7 @@ class StepsToSuccess extends React.Component {
         })
 
         return (
-            <Hammer onTap={this.handleTap} onSwipeRight={(e, i) => this.handleSwipeRight(e, this.props.index)} onSwipeLeft={(e, i) => this.handleSwipeLeft(e, this.props.index)} className={`${className} item${this.props.index} loResults steps`}>
+            <Hammer onSwipeRight={(e, i) => this.handleSwipeRight(e, this.props.index)} onSwipeLeft={(e, i) => this.handleSwipeLeft(e, this.props.index)} className={`${className} item${this.props.index} loResults steps`}>
 
                 <li className={`${this.props.className} loResults`} onClick={this.props.onClick.bind(this, this.props.index)}>
                     {this.props.step}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-let paintbrushes = ['%PUBLIC_URL%/blue-brush.png', '%PUBLIC_URL%/red-brush.png', '%PUBLIC_URL%/green-brush.png', '%PUBLIC_URL%/orange-brush.png', '%PUBLIC_URL%/brown-brush.png', '%PUBLIC_URL%/purple-brush.png']
+let paintbrushes = [process.env.PUBLIC_URL + '/red-brush.png', process.env.PUBLIC_URL + '/green-brush.png', process.env.PUBLIC_URL + '/blue-brush.png', process.env.PUBLIC_URL + '/orange-brush.png', process.env.PUBLIC_URL + '/brown-brush.png', process.env.PUBLIC_URL + '/purple-brush.png']
 
 const PaintStepsToSuccess = ({stepsToSuccess, onClick, index, movePaintbrush, clicked}) => {
  return (
@@ -10,7 +10,7 @@ const PaintStepsToSuccess = ({stepsToSuccess, onClick, index, movePaintbrush, cl
      </div>
 
  )
-
+ 
 }
 
 export default PaintStepsToSuccess;

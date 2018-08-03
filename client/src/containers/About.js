@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -47,7 +48,7 @@ class About extends React.Component {
 			<h2 className={`lO loResults`}>L.O. {learningObj}</h2>
 			<div className="bar"></div>
 			<br />
-			<ul>
+			<ul className='ul-container'>
 		
 				{stepsToSuccess.map((step,index)=> {
 			return <StepsToSuccess className={`steps ${this.state.stepsToSuccess[index]}`} onClick={index=>this.toggleHighlight(index)} step={step} index={index} />})}

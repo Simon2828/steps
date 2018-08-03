@@ -11,7 +11,7 @@ class Canvas extends React.Component {
         this.state = {
             // top: 198,
             // left: 320,
-            color: `red`,
+            color: `rgba(${0}, ${0}, ${0}, ${0})`,
             minWidth: '611px',
             minHeight: '480px',
         };
